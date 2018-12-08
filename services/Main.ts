@@ -5,15 +5,16 @@ import {Geo} from './Geo';
 
 export class Main extends Api {
   @observable public queryString: string = '';
-  @observable private fetching = false;
+  @observable public recognisedText = '';
+  @observable public fetching = false;
   @observable private fetched = false;
 
-  @action public getQS(geo: any, blob: Blob) {
+  @action public getQS(geo: any, audio: Audio) {
     this.fetched = false;
     this.fetching = true;
     this.api.post(
       '/speech-search/',
-      blob,
+      audio.blob,
       {
         headers: {
           'X-GeoLat': geo.latitude,
@@ -22,17 +23,22 @@ export class Main extends Api {
       }
     ).then(({ data }) => {
       this.queryString = data.queryString;
+      this.recognisedText = data.recognisedText;
       this.fetched = true;
+      this.fetching = false;
+      audio.isRecorded = false;
+    }).catch(() => {
+      this.fetched = false;
       this.fetching = false;
     });
   }
 
   public setUpReaction(audio: Audio, geo: Geo) {
     reaction(
-      () => [audio.isRecorded, geo.isPicked],
-      ([recorded, picked]) => {
-        if (recorded && picked) {
-          this.getQS(geo, audio.blob);
+      () => audio.isRecorded,
+      (recorded) => {
+        if (recorded) {
+          this.getQS(geo, audio);
         }
       }
     );
