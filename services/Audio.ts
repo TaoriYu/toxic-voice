@@ -4,7 +4,7 @@ import {Api} from './api';
 export class Audio extends Api {
   @observable public isRecording: boolean = false;
   @observable public isRecorded: boolean = false;
-  public blod?: any;
+  public blob?: any;
 
   public record() {
     navigator.mediaDevices.getUserMedia({ audio: true })
@@ -22,15 +22,15 @@ export class Audio extends Api {
         });
 
         mediaRecorder.addEventListener('stop', () => {
+          this.blob = new Blob(audioChunks, { type : 'audio/ogg; codecs=opus' });
           this.isRecording = false;
           this.isRecorded = true;
-          this.blod = new Blob(audioChunks, { type : 'audio/ogg; codecs=opus' });
-          // this.api.post('/speech-search/', this.blod);
+          // this.api.post('/speech-search/', this.blob);
         });
 
         setTimeout(() => {
           mediaRecorder.stop();
-        },         4000);
+        },         6000);
       });
   }
 }
