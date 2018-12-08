@@ -3,7 +3,7 @@ import {SoundWaves} from '../SoundWaves/SoundWaves';
 import * as styles from './app.css';
 
 import {Tip} from '../Tip';
-import {Grid} from 'semantic-ui-react';
+import {Grid, Transition} from 'semantic-ui-react';
 import {MicroButton} from '../MicroButton/MicroButton';
 import {inject, observer} from 'mobx-react';
 import {Audio} from '../../services/Audio';
@@ -36,23 +36,32 @@ export default class App extends React.Component<IAppProps, {}> {
         </Grid.Row>
         <Grid.Row centered>
           <Grid.Column>
-            {!recording && recognisedText &&
-              <div style={{
-                fontSize: '1.4em',
-                lineHeight: '1.4em',
-                color: 'gray',
-                textAlign: 'center'
-              }}>Вот что удалось найти по вашему запросу: "{recognisedText}" </div>
+            { !recording && recognisedText &&
+              <div
+                style={{
+                  fontSize: '1.4em',
+                  lineHeight: '1.4em',
+                  color: 'gray',
+                  textAlign: 'center'
+                }}
+              >
+                Вот что удалось найти по вашему запросу: "{recognisedText}"
+              </div>
             }
             <br/>
             <br/>
-            {qs &&
-            <iframe src={`https://www.cian.ru/cat.php?${qs}`} style={{
-              width: '100%',
-              height: 700,
-              border: 0,
-            }}/>
-            }
+            <Transition.Group animation="fly up" duration={800}>
+              {qs &&
+              <iframe
+                src={`https://www.cian.ru/cat.php?${qs}`}
+                style={{
+                  width: '100%',
+                  height: 700,
+                  border: 0,
+                }}
+              />
+              }
+            </Transition.Group>
           </Grid.Column>
         </Grid.Row>
       </Grid>
