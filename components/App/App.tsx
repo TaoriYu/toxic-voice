@@ -27,7 +27,6 @@ export default class App extends React.Component<IAppProps, {}> {
           <Grid.Column className={styles.centered}>
             <Tip message="Коснитесь микрофона и назовите запрос" />
             <MicroButton onClick={this.getAudioAndGeo} />
-            <SoundWaves />
           </Grid.Column>
         </Grid.Row>
       </Grid>

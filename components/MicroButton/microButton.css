@@ -1,7 +1,3 @@
-.centered {
-  /*margin: 50%;*/
-}
-
 .rounded {
   width: 250px;
   height: 250px;
@@ -11,8 +7,48 @@
   transition: all 0.3s ease-out;
 }
 
+.rounded.loading:before {
+  content: '';
+  width: 250px;
+  height: 250px;
+  border: 5px solid transparent;
+  border-top: 7px solid #2b87db;
+  border-right: 7px solid #2b87db;
+  border-radius: 50%;
+  animation: animateCircle 2s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 14px;
+}
+
 .rounded:hover {
   cursor: pointer;
-  fill: #0d71bb;
-  border: 5px #0d71bb solid;
+  fill: #2b87db;
+  border: 5px #2b87db solid;
+}
+
+.rounded.loading {
+  border: 5px #8a8a8a solid;
+  fill: #8a8a8a;
+}
+
+.rounded.loading:hover {
+  cursor: default;
+}
+
+@keyframes animateCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
 }

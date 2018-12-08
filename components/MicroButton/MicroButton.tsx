@@ -10,7 +10,7 @@ interface IMicroButtonProps {
 export function MicroButton({ onClick }: IMicroButtonProps) {
   return(
     <div onClick={onClick} className={styles.centered}>
-      <div className={styles.rounded}>
+      <div className={`${styles.rounded} ${styles.loading}`}>
         <MicrophoneIcon />
       </div>
     </div>
