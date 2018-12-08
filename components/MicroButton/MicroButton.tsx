@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { MicrophoneIcon } from '../incons';
-
 import * as styles from './microButton.css';
+
+import { MicrophoneIcon } from '../incons';
 
 export function MicroButton() {
   return(

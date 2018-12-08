@@ -1,4 +1,6 @@
 .tip {
+  position: absolute;
+  top: -70px;
   visibility: hidden;
   padding: 10px 0 0;
   text-align: center;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { SoundWaves } from '../SoundWaves/SoundWaves';
 import * as styles from './app.css';
 
 import { Tip } from '../Tip';
@@ -11,8 +12,9 @@ export default class App extends React.PureComponent<{}, {}> {
       <Grid container centered className={styles.topMargin}>
         <Grid.Row centered>
           <Grid.Column className={styles.centered}>
-            <MicroButton />
             <Tip message="Коснитесь микрофона и назовите запрос" />
+            <MicroButton />
+            <SoundWaves />
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Transition } from 'semantic-ui-react';
 import * as styles from './tip.css';
+
+import { Transition } from 'semantic-ui-react';
 
 export interface ITipProps {
   message: string;
@@ -10,7 +11,7 @@ export interface ITipState {
   visible: boolean;
 }
 
-const SHOW_TIP_TIMEOUT = 1000;
+const SHOW_TIP_TIMEOUT = 600;
 const HIDE_TIP_TIMEOUT = 5000;
 const SHOW = 500;
 const HIDE = 500;
