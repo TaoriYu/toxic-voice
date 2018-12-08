@@ -6,6 +6,7 @@ const Home = () => (
   <div>
     <Head title="home" />
     <App />
+    <button onClick={() => (new Audio()).record()} />
   </div>
 );
 
