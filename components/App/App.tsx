@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { SoundWaves } from '../SoundWaves/SoundWaves';
+import { SuccessCheck } from '../SuccessCheck';
 import * as styles from './app.css';
 
 import { Tip } from '../Tip';
@@ -24,8 +25,8 @@ export default class App extends React.Component<IAppProps, {}> {
       <Grid container centered className={styles.topMargin}>
         <Grid.Row centered>
           <Grid.Column className={styles.centered}>
-            <MicroButton onClick={this.getAudioAndGeo} />
             <Tip message="Коснитесь микрофона и назовите запрос" />
+            <MicroButton onClick={this.getAudioAndGeo} />
             <SoundWaves />
           </Grid.Column>
         </Grid.Row>

@@ -32,7 +32,8 @@ export class SoundWaves extends React.PureComponent<ISoundWavesProps, ISoundWave
               style={{left: `${left}px`, animationDuration: `${anim}ms`, height: `${height}px`}}
             />
 
-        )})}
+          )})
+        }
       </div>
     );
   }
