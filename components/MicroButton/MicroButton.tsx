@@ -3,9 +3,13 @@ import * as styles from './microButton.css';
 
 import { MicrophoneIcon } from '../incons';
 
-export function MicroButton() {
+interface IMicroButtonProps {
+  onClick(): void;
+}
+
+export function MicroButton({ onClick }: IMicroButtonProps) {
   return(
-    <div className={styles.centered}>
+    <div onClick={onClick} className={styles.centered}>
       <div className={styles.rounded}>
         <MicrophoneIcon />
       </div>

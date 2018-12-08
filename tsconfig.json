@@ -60,6 +60,8 @@
   },
   "include": [
     "components",
-    "pages"
+    "pages",
+    "services",
+    "types"
   ]
 }

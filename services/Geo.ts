@@ -1,8 +1,15 @@
-import {observable} from 'mobx';
+import {observable, action} from 'mobx';
 
 export class Geo {
-    @observable public isPicking: boolean = false;
-    @observable public isPicked: boolean = false;
-    public latitude?: number;
-    public longitude?: number;
+  @observable public isPicked: boolean = false;
+  public latitude?: number;
+  public longitude?: number;
+
+  @action public pickCurrentLocation() {
+    navigator.geolocation.getCurrentPosition( (position) => {
+      this.isPicked = true;
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+    });
+  }
 }
