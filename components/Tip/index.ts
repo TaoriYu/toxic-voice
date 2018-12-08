@@ -1,1 +1,1 @@
-export * from './ClickToRecord';
+export * from './Tip';

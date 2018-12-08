@@ -14,4 +14,7 @@ const fsFix = () => ({
   }
 });
 
-module.exports = withTypescript(withCSS(fsFix()));
+module.exports = withTypescript(withCSS({
+  cssModules: true,
+  webpack: fsFix(),
+}));

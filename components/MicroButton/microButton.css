@@ -1,0 +1,18 @@
+.centered {
+  /*margin: 50%;*/
+}
+
+.rounded {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px black solid;
+  padding: 20px;
+  transition: all 0.3s ease-out;
+}
+
+.rounded:hover {
+  cursor: pointer;
+  fill: #0d71bb;
+  border: 5px #0d71bb solid;
+}
